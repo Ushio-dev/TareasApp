@@ -1,0 +1,31 @@
+﻿@using TareasApp.Models.viewmodel;
+
+@model TareaViewModel2;
+
+<h1>Editar Tarea</h1>
+
+<hr />
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Edit">
+			<input type="hidden" asp-for="TareaRequest.Id"/>
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="TareaRequest.TareaName" class="control-label"></label>
+				<input asp-for="TareaRequest.TareaName" class="form-control">
+				<span asp-validation-for="TareaRequest.TareaName" class="text-danger"></span>
+			</div>
+
+			<div>
+				<input type="submit" value="Confirmar" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

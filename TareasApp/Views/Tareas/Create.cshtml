@@ -1,0 +1,30 @@
+﻿@using TareasApp.Models.viewmodel;
+
+@model TareaViewModel
+
+<h1>Agregar Tarea</h1>
+
+<hr />
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="TareaName" class="control-label"></label>
+				<input asp-for="TareaName" class="form-control"/>
+				<span asp-validation-for="TareaName" class="text-danger"></span>
+			</div>
+
+			<div>
+				<input type="submit" value="Crear" class="btn btn-primary"/>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
